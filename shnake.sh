@@ -27,24 +27,6 @@ WIDTH=0
 HEIGHT=0
 WRAP=
 
-read_opts1() {
-  while [ $# -gt 0 ]; do
-    case $1 in
-      -w) WIDTH=$2; shift 2;;
-      -h) HEIGHT=$2; shift 2;;
-      -t) LENGTH=$2; shift 2;;
-      -i) LENGTH=-1; shift 1;;
-      -o) WRAP=y; shift 1;;
-      *) ERROR=$1; break;;
-    esac
-  done
-  if [ $ERROR ]; then
-    echo "unknown option: $ERROR"
-    echo "use -h or --help option alone for help"
-    exit 1
-  fi
-}
-
 read_opts() {
   while getopts s:d:w:h:t:io OPT; do
     case $OPT in
